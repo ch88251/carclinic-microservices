@@ -1,0 +1,39 @@
+name: carclinic-user-svc
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "carclinic-microservices/carclinic-user-svc/**"
+      - ".github/workflows/carclinic-user-svc.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "carclinic-microservices/carclinic-user-svc/**"
+      - ".github/workflows/carclinic-user-svc.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: carclinic-microservices/carclinic-user-svc
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: gradle
+          cache-dependency-path: carclinic-microservices/carclinic-user-svc/build.gradle
+
+      - name: Make Gradle executable
+        run: chmod +x ./gradlew
+
+      - name: Build and test
+        run: ./gradlew clean build
