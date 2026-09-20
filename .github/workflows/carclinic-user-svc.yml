@@ -35,8 +35,16 @@ jobs:
       - name: Make Gradle executable
         run: chmod +x ./gradlew
 
-      - name: Build and test
+      - name: Build Backend
         run: ./gradlew clean build
 
-      - name: Generate HTML Report
-        run: ./gradlew jacocoTestReport
+      - name: Generate Backend HTML Test Report
+        run: ./gradlew test --rerun-tasks --console=plain
+
+      - name: Upload Backend HTML Test Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: backend-test-report
+          path: carclinic-microservices/carclinic-user-svc/build/reports/tests/test/
+          retention-days: 14
