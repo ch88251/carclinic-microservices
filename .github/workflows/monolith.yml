@@ -3,8 +3,14 @@ name: Carclinic Monolith
 on:
   push:
     branches: [ main, develop ]
+    paths:
+      - "carclinic-monolithic/**"
+      - ".github/workflows/monolith.yml"
   pull_request:
     branches: [ main, develop ]
+    paths:
+      - "carclinic-monolithic/**"
+      - ".github/workflows/monolith.yml"
 
 jobs:
   backend:
