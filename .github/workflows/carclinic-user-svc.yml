@@ -37,3 +37,6 @@ jobs:
 
       - name: Build and test
         run: ./gradlew clean build
+
+      - name: Generate HTML Report
+        run: ./gradlew jacocoTestReport
