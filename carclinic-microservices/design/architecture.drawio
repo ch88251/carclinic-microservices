@@ -1,0 +1,65 @@
+<mxfile host="65bd71144e">
+    <diagram id="kWtyQSZQRrbk1vnuyVE9" name="Page-1">
+        <mxGraphModel dx="590" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="3" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="335" y="160"/>
+                            <mxPoint x="185" y="160"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="7" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="5" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="2" target="6" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="335" y="160"/>
+                            <mxPoint x="495" y="160"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2" value="API Gateway" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="70" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="User svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Vehicle Svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="6" target="9" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="6" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="6" value="Appointment Svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="200" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="9" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" style="edgeStyle=orthogonalEdgeStyle;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="9" target="14" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Workorder Svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="340" y="320" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Inventory Svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="320" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Billing Svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="250" y="440" width="110" height="50" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Notification Svc" style="html=1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="425" y="440" width="110" height="50" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
