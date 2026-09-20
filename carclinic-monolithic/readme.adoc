@@ -1,0 +1,60 @@
+= Car Clinic Application
+
+The Car Clinic application is a software application used by Car Clinic staff and
+customers to schedule maintenance services for vehicles. The Car Clinic staff use
+the application to manage appointments and services, order parts from suppliers and
+update the status of vehicles, while customers use the application to schedule appointments,
+view service history, and receive notifications about their vehicles.
+
+image:./design/landing-page.png[Landing Page]
+
+== Backend
+
+The backend of the Car Clinic application provides a RESTful API for managing customers,
+vehicles, staff, service appointments, service types, service details, and notifications.
+The backend interacts with a PostgreSQL database to store and retrieve data.
+
+=== Technologies Used
+- Java
+- Spring Boot
+- JPA (Java Persistence API)
+- PostgreSQL
+- Keycloak
+
+== Frontend
+
+The frontend of the Car Clinic application is built using modern web technologies to
+provide a responsive and user-friendly interface for customers and staff. The frontend
+communicates with the backend API to perform CRUD operations on the various entities in
+the application.
+
+=== Technologies Used
+- React
+- Typescript
+- Tanstack Query
+- Axios
+- MaterialUI
+- Keycloak
+
+== Authentication
+
+The local Docker environment now starts a Keycloak instance on `http://localhost:8180`
+and imports the `carclinic` realm automatically.
+
+=== Imported realm settings
+- Realm: `carclinic`
+- Client: `carclinic-ui`
+- Roles: `admin`, `staff`
+- Demo users (local development only):
+  * `admin.user` / `changeit`
+  * `staff.user` / `changeit`
+
+The backend API uses stateless bearer-token authentication from Keycloak, so CSRF checks are 
+only bypassed for the token-protected API and documentation endpoints.
+
+Start the full stack with:
+
+[source,bash]
+----
+docker compose up -d --build
+----

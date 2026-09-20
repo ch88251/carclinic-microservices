@@ -1,0 +1,18 @@
+@startuml
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Context.puml
+
+title System Context diagram for Car Clinic
+
+Person(staff, "Car Clinic Staff", "Staff at the Car Clinic")
+Person(customer, "Car Owner", "A car owner")
+System(carClinic, "Car Clinic System", "Software application used by Car Clinic staff and customers to schedule maintenance services for vehicles")
+
+System_Ext(notification, "Notification System", "Provides notification messages via email and SMS messages for important notifications regarding the status of a vehicle")
+
+staff -down-> (carClinic): Uses
+customer -down-> (carClinic): Uses
+carClinic -> (notification): Sends notifications using
+notification -left-> customer: Sends notifications to
+
+
+@enduml

@@ -1,0 +1,158 @@
+.staff-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Toolbar row */
+.staff-list__toolbar {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  padding: 0.5rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.btn--add {
+  background-color: #6a1b9a;
+  color: #fff;
+  width: 160px;
+}
+
+.btn--add:hover {
+  background-color: #4a148c;
+}
+
+.btn--icon {
+  background: none;
+  padding: 0.25rem;
+  line-height: 1;
+  font-size: 1rem;
+  border-radius: 4px;
+}
+
+.btn--delete {
+  color: #d32f2f;
+}
+
+.btn--delete:hover {
+  background-color: #fdecea;
+}
+
+/* Status text */
+.staff-list__status {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Table */
+.staff-table-wrapper {
+  overflow-x: auto;
+  background: #fff;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.staff-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.staff-table th,
+.staff-table td {
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+  white-space: nowrap;
+}
+
+.staff-table th {
+  background-color: #fafafa;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  color: #555;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.staff-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.staff-table td.actions {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: #555;
+}
+
+.pagination button {
+  cursor: pointer;
+  border: 1px solid #bdbdbd;
+  background: #fff;
+  border-radius: 4px;
+  padding: 0.3rem 0.75rem;
+  font-size: 0.875rem;
+  transition: background-color 0.2s;
+}
+
+.pagination button:hover:not(:disabled) {
+  background-color: #f3e5f5;
+}
+
+.pagination button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  min-width: 360px;
+  max-width: 480px;
+  width: 100%;
+}
+
+/* Toast */
+.toast {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #323232;
+  color: #fff;
+  padding: 0.65rem 1.5rem;
+  border-radius: 4px;
+  font-size: 0.875rem;
+  z-index: 200;
+}

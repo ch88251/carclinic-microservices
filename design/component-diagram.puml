@@ -1,0 +1,59 @@
+@startuml
+
+!include https://raw.githubusercontent.com/plantuml-stdlib/C4-PlantUML/master/C4_Component.puml
+
+title C4 Component diagram for Car Clinic
+
+Person(customer, "Car Owner", "Uses the Car Clinic system to book services")
+Person(staff, "Car Clinic Staff", "Uses the Car Clinic system to manage services")
+
+System_Boundary(carClinicBoundary, "Car Clinic System") {
+    
+    Container(webApp, "Web Application", "React", "Allows users to book and manage services") {
+        Component(bookingUI, "Booking Interface", "React Component", "UI for customers to schedule services for their vehicles")
+        Component(managementUI, "Management Interface", "React Component", "UI for staff to manage appointments and services")
+        Component(authComponent, "Authentication", "React Component", "Handles login and user authentication")
+    }
+
+    Container(api, "API", "Spring Boot", "Handles business logic and data processing") {
+        Component(authController, "Authentication Controller", "Spring Security", "Handles user authentication and session management")
+        Component(appointmentController, "Appointment Controller", "Spring REST Controller", "Handles CRUD operations for appointments")
+        Component(vehicleController, "Vehicle Controller", "Spring REST Controller", "Manages vehicle data")
+        Component(notificationController, "Notification Controller", "Spring REST Controller", "Triggers notification sending for appointment updates")
+        Component(customerService, "Customer Service", "Spring Service", "Business logic for managing customers")
+        Component(vehicleService, "Vehicle Service", "Spring Service", "Business logic for managing vehicle details")
+        Component(appointmentService, "Appointment Service", "Spring Service", "Business logic for managing service appointments")
+        Component(notificationService, "Notification Service", "Spring Service", "Logic for sending notifications")
+        Component(dbRepository, "Database Repository", "Spring Data JPA", "Repository for accessing PostgreSQL database")
+    }
+    
+    ContainerDb(database, "Database", "PostgreSQL", "Stores customer, vehicle, service, and appointment data")
+
+    Container(notificationService, "Notification Service", "Node.js", "Sends email and SMS notifications") {
+        Component(emailComponent, "Email Sender", "Node.js Module", "Sends email notifications")
+        Component(smsComponent, "SMS Sender", "Node.js Module", "Sends SMS notifications")
+    }
+    
+    System_Ext(notificationProvider, "Notification Provider", "External service for sending email and SMS")
+
+}
+
+Rel(customer, bookingUI, "Schedules services")
+Rel(staff, managementUI, "Manages appointments")
+
+Rel(bookingUI, authComponent, "Handles authentication")
+Rel(managementUI, authComponent, "Handles authentication")
+Rel(authComponent, authController, "Authenticates users")
+Rel(bookingUI, appointmentController, "Schedules services via")
+Rel(managementUI, appointmentController, "Manages appointments via")
+Rel(appointmentController, appointmentService, "Uses")
+Rel(appointmentService, dbRepository, "Accesses")
+Rel(vehicleController, vehicleService, "Uses")
+Rel(vehicleService, dbRepository, "Accesses")
+Rel(notificationController, notificationService, "Triggers notifications via")
+Rel(notificationService, emailComponent, "Sends email")
+Rel(notificationService, smsComponent, "Sends SMS")
+Rel(emailComponent, notificationProvider, "Uses")
+Rel(smsComponent, notificationProvider, "Uses")
+
+@enduml

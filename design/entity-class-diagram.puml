@@ -1,0 +1,25 @@
+@startuml
+
+abstract class AbstractEntity {
+    - id : Long
+}
+
+class Person {
+    - firstName : String
+    - lastName : String
+    - email : String
+    - phoneNumber : String
+}
+
+class Owner {
+    - vehicles : List<Vehicle>
+}
+
+class Staff {
+    - role : String
+}
+
+Staff -up-|> Person
+Owner -up-|> Person
+Person -up-|> AbstractEntity
+@enduml

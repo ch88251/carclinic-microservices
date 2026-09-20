@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Clinic – Appointments</title>
+  <link rel="stylesheet" href="appointment-list.css" />
+</head>
+<body>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar">
+    <div class="navbar__brand">
+      <svg class="navbar__logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M22.7 19l-9.1-9.1c.9-2.3.4-5-1.5-6.9-2-2-5-2.4-7.4-1.3L9 6 6 9 1.6 4.7C.4 7.1.9 10.1 2.9 12.1c1.9 1.9 4.6 2.4 6.9 1.5l9.1 9.1c.4.4 1 .4 1.4 0l2.3-2.3c.5-.4.5-1.1.1-1.4z"/>
+      </svg>
+      <span class="navbar__title">Car Clinic</span>
+    </div>
+
+    <nav class="navbar__menu">
+      <a href="#" class="navbar__link">Home</a>
+      <a href="#" class="navbar__link">Vehicles</a>
+      <a href="#" class="navbar__link navbar__link--active">Appointments</a>
+      <a href="#" class="navbar__link">Services</a>
+      <a href="#" class="navbar__link">Staff</a>
+    </nav>
+
+    <div class="navbar__actions">
+      <button class="profile-btn" aria-label="User profile">
+        <span class="profile-btn__avatar">JD</span>
+        <span class="profile-btn__name">Jane Doe</span>
+        <svg class="profile-btn__chevron" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M7 10l5 5 5-5z"/>
+        </svg>
+      </button>
+      <button class="btn btn--logout">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+          <path d="M17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5-5-5zM4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4V5z"/>
+        </svg>
+        Logout
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+    <!-- Page Header -->
+    <div class="page-header">
+      <div class="page-header__text">
+        <h1 class="page-title">Appointments</h1>
+        <p class="page-subtitle">View and manage all service appointments.</p>
+      </div>
+      <a href="appointment-schedule.html" class="btn btn--primary">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+        </svg>
+        Schedule Appointment
+      </a>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="filter-bar">
+      <div class="filter-bar__search-wrap">
+        <svg class="filter-bar__search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+        </svg>
+        <input type="search" class="filter-bar__search" placeholder="Search by customer or vehicle…" />
+      </div>
+
+      <select class="filter-bar__select">
+        <option value="">All Statuses</option>
+        <option value="scheduled">Scheduled</option>
+        <option value="in-progress">In Progress</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+
+      <div class="filter-bar__date-group">
+        <label class="filter-bar__label">From</label>
+        <input type="date" class="filter-bar__date" value="2026-05-01" />
+      </div>
+
+      <div class="filter-bar__date-group">
+        <label class="filter-bar__label">To</label>
+        <input type="date" class="filter-bar__date" value="2026-05-31" />
+      </div>
+    </div>
+
+    <!-- Results Count -->
+    <p class="results-count">Showing <strong>8</strong> appointments</p>
+
+    <!-- Table -->
+    <div class="table-wrapper">
+      <table class="appt-table">
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Customer</th>
+            <th>Vehicle</th>
+            <th>Services</th>
+            <th>Staff</th>
+            <th>Status</th>
+            <th class="col-actions">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          <tr>
+            <td class="td-date">May 19, 2026</td>
+            <td>Alice Johnson</td>
+            <td class="td-vehicle">2020 Toyota Camry</td>
+            <td><span class="service-tag">Oil Change</span></td>
+            <td>Bob Smith</td>
+            <td><span class="badge badge--scheduled">Scheduled</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel">Cancel</button>
+            </td>
+          </tr>
+
+          <tr class="row--stripe">
+            <td class="td-date">May 19, 2026</td>
+            <td>Mike Davis</td>
+            <td class="td-vehicle">2018 Honda Civic</td>
+            <td>
+              <span class="service-tag">Brake Inspection</span>
+              <span class="service-tag">Tire Rotation</span>
+            </td>
+            <td>Carol White</td>
+            <td><span class="badge badge--in-progress">In Progress</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel" disabled>Cancel</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="td-date">May 20, 2026</td>
+            <td>Sarah Brown</td>
+            <td class="td-vehicle">2021 Ford Explorer</td>
+            <td><span class="service-tag">Engine Diagnostic</span></td>
+            <td>Dave Lee</td>
+            <td><span class="badge badge--scheduled">Scheduled</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel">Cancel</button>
+            </td>
+          </tr>
+
+          <tr class="row--stripe">
+            <td class="td-date">May 21, 2026</td>
+            <td>Tom Wilson</td>
+            <td class="td-vehicle">2019 Chevrolet Malibu</td>
+            <td><span class="service-tag">Oil Change</span></td>
+            <td>Bob Smith</td>
+            <td><span class="badge badge--scheduled">Scheduled</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel">Cancel</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="td-date">May 15, 2026</td>
+            <td>Emma Garcia</td>
+            <td class="td-vehicle">2022 BMW 3 Series</td>
+            <td>
+              <span class="service-tag">Full Service</span>
+              <span class="service-tag">AC Check</span>
+            </td>
+            <td>Carol White</td>
+            <td><span class="badge badge--completed">Completed</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel" disabled>Cancel</button>
+            </td>
+          </tr>
+
+          <tr class="row--stripe">
+            <td class="td-date">May 16, 2026</td>
+            <td>James Martinez</td>
+            <td class="td-vehicle">2017 Nissan Altima</td>
+            <td><span class="service-tag">Brake Pad Replacement</span></td>
+            <td>Dave Lee</td>
+            <td><span class="badge badge--completed">Completed</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel" disabled>Cancel</button>
+            </td>
+          </tr>
+
+          <tr>
+            <td class="td-date">May 17, 2026</td>
+            <td>Lisa Anderson</td>
+            <td class="td-vehicle">2020 Hyundai Elantra</td>
+            <td><span class="service-tag">Transmission Service</span></td>
+            <td>Bob Smith</td>
+            <td><span class="badge badge--cancelled">Cancelled</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel" disabled>Cancel</button>
+            </td>
+          </tr>
+
+          <tr class="row--stripe">
+            <td class="td-date">May 18, 2026</td>
+            <td>Robert Taylor</td>
+            <td class="td-vehicle">2023 Tesla Model 3</td>
+            <td>
+              <span class="service-tag">Battery Check</span>
+              <span class="service-tag">Tire Rotation</span>
+            </td>
+            <td>Carol White</td>
+            <td><span class="badge badge--completed">Completed</span></td>
+            <td class="td-actions">
+              <button class="action-btn action-btn--view">View</button>
+              <button class="action-btn action-btn--cancel" disabled>Cancel</button>
+            </td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Pagination -->
+    <div class="pagination">
+      <button class="pagination__btn" disabled>← Prev</button>
+      <div class="pagination__pages">
+        <button class="pagination__page pagination__page--active">1</button>
+        <button class="pagination__page">2</button>
+        <button class="pagination__page">3</button>
+        <button class="pagination__page">4</button>
+      </div>
+      <button class="pagination__btn">Next →</button>
+    </div>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <p>&copy; 2026 Car Clinic. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

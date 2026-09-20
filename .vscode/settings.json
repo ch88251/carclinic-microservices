@@ -1,0 +1,20 @@
+{
+  "window.zoomLevel": 3,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": true,
+  "sqltools.connections": [
+    {
+      "ssh": "Disabled",
+      "previewLimit": 50,
+      "server": "localhost",
+      "port": 5432,
+      "askForPassword": true,
+      "driver": "PostgreSQL",
+      "name": "carclinic",
+      "database": "carclinic",
+      "username": "carclinic"
+    }
+  ],
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.compile.nullAnalysis.mode": "automatic",
+}
