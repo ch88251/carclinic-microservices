@@ -30,7 +30,7 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: gradle
-          cache-dependency-path: carclinic-microservices/carclinic-user-svc/build.gradle
+          cache-dependency-path: carclinic-microservices/carclinic-user-svc/build.gradle.kts
 
       - name: Make Gradle executable
         run: chmod +x ./gradlew
