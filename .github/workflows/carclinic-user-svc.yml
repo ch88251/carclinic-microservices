@@ -38,9 +38,6 @@ jobs:
       - name: Build Backend
         run: ./gradlew clean build
 
-      - name: Generate Backend HTML Test Report
-        run: ./gradlew test --rerun-tasks --console=plain
-
       - name: Upload Backend HTML Test Report
         if: always()
         uses: actions/upload-artifact@v4
