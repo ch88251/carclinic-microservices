@@ -15,9 +15,5 @@ public interface CustomerEntityMapper extends Mapper<CustomerRequest, Customer> 
 
 	@Override
 	@Mapping(target = "id", ignore = true)
-	@Mapping(target = "firstName", ignore = true)
-	@Mapping(target = "lastName", ignore = true)
-	@Mapping(target = "email", ignore = true)
-	@Mapping(target = "phone", ignore = true)
 	Customer map(@MappingTarget Customer response, CustomerRequest request);
 }
