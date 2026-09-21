@@ -1,0 +1,81 @@
+{
+  "realm": "carclinic",
+  "enabled": true,
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "duplicateEmailsAllowed": false,
+  "resetPasswordAllowed": true,
+  "roles": {
+    "realm": [
+      {
+        "name": "admin",
+        "description": "Car Clinic administrators"
+      },
+      {
+        "name": "staff",
+        "description": "Car Clinic staff members"
+      }
+    ]
+  },
+  "clients": [
+    {
+      "clientId": "carclinic-ui",
+      "name": "carclinic-ui",
+      "enabled": true,
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "directAccessGrantsEnabled": true,
+      "redirectUris": [
+        "http://localhost:3000/*",
+        "http://localhost:5173/*"
+      ],
+      "webOrigins": [
+        "http://localhost:3000",
+        "http://localhost:5173"
+      ],
+      "attributes": {
+        "pkce.code.challenge.method": "S256",
+        "post.logout.redirect.uris": "+"
+      }
+    }
+  ],
+  "users": [
+    {
+      "username": "admin.user",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Admin",
+      "lastName": "User",
+      "email": "admin.user@carclinic.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "changeit",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "admin"
+      ]
+    },
+    {
+      "username": "staff.user",
+      "enabled": true,
+      "emailVerified": true,
+      "firstName": "Staff",
+      "lastName": "User",
+      "email": "staff.user@carclinic.local",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "changeit",
+          "temporary": false
+        }
+      ],
+      "realmRoles": [
+        "staff"
+      ]
+    }
+  ]
+}
