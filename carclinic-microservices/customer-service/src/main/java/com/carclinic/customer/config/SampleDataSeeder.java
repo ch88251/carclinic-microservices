@@ -35,9 +35,9 @@ public class SampleDataSeeder implements ApplicationRunner {
 
         log.info("Seeding sample customers and vehicles");
 
-        Customer jane = customerRepository.save(new Customer("Jane", "Doe", "jane.doe@example.com", "555-0101"));
-        Customer john = customerRepository.save(new Customer("John", "Smith", "john.smith@example.com", "555-0102"));
-        Customer maria = customerRepository.save(new Customer("Maria", "Garcia", "maria.garcia@example.com", "555-0103"));
+        customerRepository.save(new Customer("Jane", "Doe", "jane.doe@example.com", "555-0101"));
+        customerRepository.save(new Customer("John", "Smith", "john.smith@example.com", "555-0102"));
+        customerRepository.save(new Customer("Maria", "Garcia", "maria.garcia@example.com", "555-0103"));
 
     }
 
