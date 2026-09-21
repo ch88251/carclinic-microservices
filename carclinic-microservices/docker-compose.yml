@@ -16,6 +16,57 @@ services:
       timeout: 5s
       retries: 5
 
+  customer-service:
+    build:
+      context: .
+      dockerfile: customer-service/Dockerfile
+    container_name: customer-service
+    environment:
+      DB_HOST: customer-db
+      DB_PORT: 5432
+      DB_NAME: customerdb
+      DB_USERNAME: customer
+      DB_PASSWORD: customer
+    ports:
+      - "8080:8080"
+    depends_on:
+      customer-db:
+        condition: service_healthy
+
+  vehicle-db:
+    image: postgres:16-alpine
+    container_name: vehicle-db
+    environment:
+      POSTGRES_DB: vehiclesdb
+      POSTGRES_USER: vehicle
+      POSTGRES_PASSWORD: vehicle
+    ports:
+      - "5434:5432"
+    volumes:
+      - vehicle-db-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vehicle -d vehiclesdb"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  vehicle-service:
+    build:
+      context: .
+      dockerfile: vehicle-service/Dockerfile
+    container_name: vehicle-service
+    environment:
+      DB_HOST: vehicle-db
+      DB_PORT: 5432
+      DB_NAME: vehiclesdb
+      DB_USERNAME: vehicle
+      DB_PASSWORD: vehicle
+    ports:
+      - "8081:8080"
+    depends_on:
+      vehicle-db:
+        condition: service_healthy
+
   keycloak-db:
     image: postgres:16-alpine
     container_name: keycloak-db
@@ -58,4 +109,5 @@ services:
 
 volumes:
   customer-db-data:
+  vehicle-db-data:
   keycloak-db-data:
