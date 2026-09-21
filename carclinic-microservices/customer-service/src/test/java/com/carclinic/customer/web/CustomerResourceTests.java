@@ -23,7 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(CustomerResource.class)
-public class CustomerResourceTest {
+public class CustomerResourceTests {
     
     @Autowired
     MockMvc mockMvc;

@@ -1,25 +1,25 @@
-name: carclinic-user-svc
+name: customer-service
 
 on:
   push:
     branches:
       - main
     paths:
-      - "carclinic-microservices/carclinic-user-svc/**"
-      - ".github/workflows/carclinic-user-svc.yml"
+      - "carclinic-microservices/customer-service/**"
+      - ".github/workflows/customer-service.yml"
   pull_request:
     branches:
       - main
     paths:
-      - "carclinic-microservices/carclinic-user-svc/**"
-      - ".github/workflows/carclinic-user-svc.yml"
+      - "carclinic-microservices/customer-service/**"
+      - ".github/workflows/customer-service.yml"
 
 jobs:
   build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: carclinic-microservices/carclinic-user-svc
+        working-directory: carclinic-microservices/customer-service
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
@@ -30,7 +30,7 @@ jobs:
           distribution: temurin
           java-version: '21'
           cache: gradle
-          cache-dependency-path: carclinic-microservices/carclinic-user-svc/build.gradle.kts
+          cache-dependency-path: carclinic-microservices/customer-service/build.gradle.kts
 
       - name: Make Gradle executable
         run: chmod +x ./gradlew
@@ -43,5 +43,5 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: backend-test-report
-          path: carclinic-microservices/carclinic-user-svc/build/reports/tests/test/
+          path: carclinic-microservices/customer-service/build/reports/tests/test/
           retention-days: 14
